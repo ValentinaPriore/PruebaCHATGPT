@@ -1,4 +1,4 @@
-const apiKey = "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";
+const apiKey = "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";
 
 // Define the API endpoint URL
 const apiUrl = "https://api.openai.com/v1/completions";
@@ -7,7 +7,7 @@ const apiUrl = "https://api.openai.com/v1/completions";
 
 function makeRequest() {
     // Make the API request
-    prompt = document.getElementById("promptID").value
+    prompt = "Lista de 10 referentes en la profesión de " + document.getElementById("promptID").value + ". Dame solo la lista con los nombres"
     // Define the request payload
     let payload = JSON.stringify({
         prompt,
@@ -31,5 +31,3 @@ function makeRequest() {
             // Handle any errors
             console.error(error);
         });
-}
-

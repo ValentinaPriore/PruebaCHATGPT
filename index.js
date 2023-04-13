@@ -1,4 +1,21 @@
-const apiKey = "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";
+let req = new XMLHttpRequest();
+let json = ""
+let apiKey = ""
+
+req.onreadystatechange = () => {
+  if (req.readyState == XMLHttpRequest.DONE) {
+    console.log(req.responseText);
+     json = JSON.parse(req.responseText).record.apikey;
+     apiKey = json;
+
+  }
+};
+
+
+req.open("GET", "https://api.jsonbin.io/v3/b/64375175ebd26539d0a9e481/latest", true);
+req.setRequestHeader("X-Master-Key", "$2b$10$eHr1Kj52JphH.CCe92/I3.6MKc5zm6sr2Kojxy0cRbEnM78nzLRlq");
+req.send();
+
 
 // Define the API endpoint URL
 const apiUrl = "https://api.openai.com/v1/completions";
@@ -31,3 +48,5 @@ function makeRequest() {
             // Handle any errors
             console.error(error);
         });
+}
+
